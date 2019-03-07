@@ -1,1 +1,2 @@
 # WeChat_r
+init
