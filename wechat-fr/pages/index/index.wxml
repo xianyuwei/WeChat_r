@@ -1,0 +1,42 @@
+<!--index.wxml-->
+
+<view class="view">
+  <view class="window">
+    <!-- <view class="{{showView?'widget_view_show':'widget_view_hide'}}"></view> -->
+      <image class="cover-9" src="{{tempImagePath}}" bindtap="img" wx:if="{{type=='takePhoto'&&!camera}}"></image>
+      <video class="cover-9" src="{{tempVideoPath}}" poster="{{tempThumbPath}}" wx:if="{{type=='startRecord'&&!camera}}"></video>
+    <view class="window-2" wx:if="{{!camera}}">
+      <button bindtap="open" type="primary" data-type="takePhoto">Take Photo</button>
+      <button bindtap="open" type="primary" data-type="startRecord">Start Record</button>
+    </view>
+  </view>
+  
+  <camera class="camera" device-position="{{device?'back':'front'}}" wx:if="{{camera}}" flash="off">
+    <cover-view class="cover-1" bindtap="camera">
+      <cover-view class="cover-2">
+        <cover-view class="cover-5" wx:if="{{type=='startRecord'&&startRecord}}">{{time}}S</cover-view>
+      </cover-view>
+    </cover-view> 
+    <cover-image class="cover-3" src="./images/back.png" style="width:60rpx;height:60rpx;" bindtap="close"></cover-image>  
+    <cover-image class="cover-4" src="./images/change.png" style="width:80rpx;height:60rpx;" bindtap="devicePosition"></cover-image>
+  </camera>
+  <view class='progress-box' wx:if="{{camera}}">
+    <view class='progress-title'>
+      <text cl>left</text>
+    </view>
+    <progress class='photo_number' percent="{{photo_number_left}}" stroke-width="12"></progress>
+  </view>
+  <view class='progress-box' wx:if="{{camera}}">
+    <view class='progress-title'>
+      <text cl>right</text>
+    </view>
+    <progress class='photo_number' percent="{{photo_number_right}}" stroke-width="12"></progress>
+  </view>
+  <view class='progress-box' wx:if="{{camera}}">
+    <view class='progress-title'>
+      <text cl>front</text>
+    </view>
+    <progress class='photo_number' percent="{{photo_number_front}}" stroke-width="12"></progress>
+  </view>
+</view>
+

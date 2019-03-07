@@ -1,0 +1,34 @@
+<!--index.wxml-->
+
+ <view class="view">  
+  <camera class="camera" device-position="{{device?'back':'front'}}" wx:if="{{camera}}" flash="off">
+    <cover-view class="cover-1" bindtap="camera">
+      <cover-view class="cover-2">
+        <cover-image src="./images/play.png" wx:if="{{!startTakePhoto}}"></cover-image> 
+        <cover-image src="./images/stop.png" wx:if="{{startTakePhoto}}"></cover-image> 
+        <cover-view class="cover-5" wx:if="{{type=='startRecord'&&startRecord}}">{{time}}S</cover-view>
+      </cover-view>
+    </cover-view> 
+    <cover-image class="cover-4" src="./images/change.png" style="width:80rpx;height:60rpx;" bindtap="devicePosition"></cover-image>
+  </camera>
+  <text class="upload_info" >{{progress_txt}}</text>
+  <view class='progress-box' wx:if="{{camera}}">
+    <view class='progress-title'>
+      <text>face right</text>
+    </view>
+    <progress class='photo_number' percent="{{photo_number_left}}" stroke-width="12"></progress>
+  </view>
+  <view class='progress-box' wx:if="{{camera}}">
+    <view class='progress-title'>
+      <text>face left</text>
+    </view>
+    <progress class='photo_number' percent="{{photo_number_right}}" stroke-width="12"></progress>
+  </view>
+  <view class='progress-box' wx:if="{{camera}}">
+    <view class='progress-title'>
+      <text>face front</text>
+    </view>
+    <progress class='photo_number' percent="{{photo_number_front}}" stroke-width="12"></progress>
+  </view>
+</view>
+

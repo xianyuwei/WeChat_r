@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">NAME</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="PLEASE INPUT YOUR NAME" name="userName" value="{{userName}}" bindinput="userNameInput"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">ORG</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="PLEASE INPUT YOUR ORGNIZATION" name="userOrg" value="{{userOrg}}" bindinput="userOrgInput"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">CID</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="PLEASE INPUT YOUR CID" name="userID" value="{{userID}}" bindinput="userIDInput"></input>
+          </view>
+        </view>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bindtap="loginBtnClick">Start Training</button>
+      </view>
+    </view>
+  </view>
+</view>
